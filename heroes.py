@@ -1,5 +1,5 @@
 from antagonistfinder import Place
-from abc import ABC, abstractmethod
+from abc import ABC
 
 
 class SuperHero(ABC):
@@ -15,14 +15,11 @@ class SuperHero(ABC):
     def attack(self):
         Weapons.fire_a_gun(self)
 
-    def create_news(self, place):
-        place_name = getattr(place, 'name', 'place')
-        print(f'{self.name} saved the {place_name}!')
 
+class News(ABC):
 
-class News(SuperHero):
-
-    def create_news(self, place):
+    def create_news(self,place):
+        self.name = 'name'
         place_name = getattr(place, 'name', 'place')
         print(f'{self.name} saved the {place_name}!')
 
@@ -36,7 +33,7 @@ class Weapons(SuperHero):
 
     def roundhouse_kick(self):
         print('Bump')
-    @abstractmethod
+
     def ultimate(self):
         if self.name == 'Clark Kent':
             self.incinerate_with_lasers()
@@ -54,6 +51,4 @@ class Superman(SuperHero):
         if self.name == 'Superman':
             Weapons.incinerate_with_lasers(self)
 
-    def create_news(self, place):
-        place_name = getattr(place, 'name', 'place')
-        print(f'{self.name} saved the {place_name}!')
+
