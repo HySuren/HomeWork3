@@ -24,7 +24,7 @@ class News(ABC):
         print(f'{self.name} saved the {place_name}!')
 
 
-class Weapons(SuperHero):
+class Weapons():
     def fire_a_gun(self):
         print('PIU PIU')
 
